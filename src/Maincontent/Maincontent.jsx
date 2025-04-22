@@ -1,0 +1,52 @@
+import React, { useEffect, useState } from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+
+const Maincontent = () => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    fetch('/categories.json') // ✅ Correct path for public folder
+      .then(res => res.json())
+      .then(data => setCategories(data))
+      .catch(err => console.error(err));
+  }, []);
+
+  return (
+    <div className="grid w-full grid-cols-12 gap-6 px-6 mt-10">
+      {/* Left Sidebar */}
+      <div className="col-span-3">
+        <h1 className="mb-4 text-xl font-semibold">All Categories</h1>
+        <div className="flex flex-col gap-y-2">
+          {categories.map(category => (
+            <NavLink
+              to={`/category/${category.id}`}
+              key={category.id}
+              className={({ isActive }) =>
+                isActive
+                  ? 'text-red-500 font-bold btn'
+                  : 'text-[#706F6F] py-6 btn'
+              }
+            >
+              {category.name}
+            </NavLink>
+          ))}
+        </div>
+      </div>
+
+      {/* Center Content */}
+      <div className="col-span-6">
+        <h1 className='mb-3 text-2xl'>Dragon News Home</h1>
+        <Outlet />
+        
+      </div>
+
+      {/* Right Sidebar */}
+      <div className="col-span-3">
+        <h1 className="mb-4 text-xl font-semibold">Login With</h1>
+        {/* Add your login options here */}
+      </div>
+    </div>
+  );
+};
+
+export default Maincontent;
