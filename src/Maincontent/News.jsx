@@ -13,7 +13,7 @@ const News = () => {
     return (
         <div>
             {
-                news.map((newsitem) => <NewsCard key={newsitem.category_id} data={newsitem}></NewsCard>)
+                news.map((newsitem) => <NewsCard  data={newsitem}></NewsCard>)
             }
         </div>
     );

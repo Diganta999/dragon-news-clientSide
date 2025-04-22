@@ -1,4 +1,5 @@
 // Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -6,15 +7,15 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyATulydzVYkx2pYLoBT4t3Fm5Vjx0Q0QkE",
-  authDomain: "dragone-news-firebase.firebaseapp.com",
-  projectId: "dragone-news-firebase",
-  storageBucket: "dragone-news-firebase.firebasestorage.app",
-  messagingSenderId: "627136897600",
-  appId: "1:627136897600:web:e816ec8efc4068e7d335a5"
+  apiKey: "AIzaSyDsxQXd3Ykbk2WInlRbwqToxqxo_6BiIbE",
+  authDomain: "dragon-news-429fe.firebaseapp.com",
+  projectId: "dragon-news-429fe",
+  storageBucket: "dragon-news-429fe.firebasestorage.app",
+  messagingSenderId: "290574595165",
+  appId: "1:290574595165:web:d077506c27ed9c7b8c49b4"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// Initialize Firebase Authentication and get a reference to the service
-export const auth = getAuth(app);
+ // Initialize Firebase Authentication and get a reference to the service
+ export const auth = getAuth(app);
