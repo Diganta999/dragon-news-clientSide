@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
+import GoogleLogin from '../SharedItems/SocialLogin/GoogleLogin/GoogleLogin';
+import GitHubLogin from '../SharedItems/SocialLogin/GitHubLogin/GitHubLogin';
+import Social from '../SharedItems/Socilal/Social';
 
 const Maincontent = () => {
   const [categories, setCategories] = useState([]);
@@ -35,7 +38,7 @@ const Maincontent = () => {
 
       {/* Center Content */}
       <div className="col-span-6">
-        <h1 className='mb-3 text-2xl'>Dragon News Home</h1>
+        <h1 className='mb-4 text-xl font-semibold'>Dragon News Home</h1>
         <Outlet />
         
       </div>
@@ -44,6 +47,19 @@ const Maincontent = () => {
       <div className="col-span-3">
         <h1 className="mb-4 text-xl font-semibold">Login With</h1>
         {/* Add your login options here */}
+        <div className='flex flex-col gap-y-4'>
+            <div >
+            <GoogleLogin />
+            </div>
+            <div>
+            <GitHubLogin />
+            </div>
+            {/* find of social media */}
+            <div className='mt-6 '>
+                <h1 className="mb-4 text-xl font-semibold">Find Us On </h1>
+                <Social />
+            </div>
+        </div>
       </div>
     </div>
   );
