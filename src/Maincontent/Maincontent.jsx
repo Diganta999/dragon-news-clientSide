@@ -3,6 +3,7 @@ import { NavLink, Outlet } from 'react-router-dom';
 import GoogleLogin from '../SharedItems/SocialLogin/GoogleLogin/GoogleLogin';
 import GitHubLogin from '../SharedItems/SocialLogin/GitHubLogin/GitHubLogin';
 import Social from '../SharedItems/Socilal/Social';
+import QZone from '../Components/Q-Zone/QZone';
 
 const Maincontent = () => {
   const [categories, setCategories] = useState([]);
@@ -58,6 +59,9 @@ const Maincontent = () => {
             <div className='mt-6 '>
                 <h1 className="mb-4 text-xl font-semibold">Find Us On </h1>
                 <Social />
+            </div>
+            <div className='mt-1 '>
+                <QZone />
             </div>
         </div>
       </div>
