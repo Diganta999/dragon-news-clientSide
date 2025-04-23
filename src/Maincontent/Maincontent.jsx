@@ -7,6 +7,7 @@ import QZone from '../Components/Q-Zone/QZone';
 
 const Maincontent = () => {
   const [categories, setCategories] = useState([]);
+  const [news, setNews] = useState([]);
 
   useEffect(() => {
     fetch('/categories.json') // ✅ Correct path for public folder
@@ -14,6 +15,13 @@ const Maincontent = () => {
       .then(data => setCategories(data))
       .catch(err => console.error(err));
   }, []);
+  useEffect(() => {
+    fetch('/news.json') // ✅ Correct path for public folder
+      .then(res => res.json())
+      .then(data => setNews(data))
+      .catch(err => console.error(err));
+  }, []);
+  console.log(news);
 
   return (
     <div className="grid w-full grid-cols-12 gap-6 px-6 mt-10">
@@ -21,7 +29,19 @@ const Maincontent = () => {
       <div className="col-span-3">
         <h1 className="mb-4 text-xl font-semibold">All Categories</h1>
         <div className="flex flex-col gap-y-2">
+          <NavLink to={"/category"} // ✅ this handles "/category"
+             // ✅ this handles "/category"
+            className={({ isActive }) =>    
+              isActive
+                ? 'text-red-500 font-bold btn'    
+                : 'text-[#706F6F] py-6 btn'
+            }
+          >
+            All News
+            
+          </NavLink>    
           {categories.map(category => (
+              
             <NavLink
               to={`/category/${category.id}`}
               key={category.id}

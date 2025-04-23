@@ -19,7 +19,7 @@ const NewsCard = ({ data }) => {
           <img src={author.img} alt={author.name} className="w-10 h-10 rounded-full" />
           <div>
             <h2 className="text-sm font-semibold">{author.name}</h2>
-            <p className="text-xs text-gray-500">{author.published_date.split(' ')[0]}</p>
+            <p className="text-xs text-gray-500">{author?.published_date? author.published_date.split(' ')[0] : "Date not available"}</p>
           </div>
         </div>
         <FaShareAlt className="text-gray-500 cursor-pointer" />
@@ -33,7 +33,7 @@ const NewsCard = ({ data }) => {
 
       {/* Details */}
       <p className="text-sm text-gray-600">
-        {details.slice(0, 200)}...
+        { details?.slice(0, 200)}...
         <span className="font-semibold text-red-500 cursor-pointer"> Read More</span>
       </p>
 

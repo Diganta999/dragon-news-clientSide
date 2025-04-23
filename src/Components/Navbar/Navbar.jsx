@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
@@ -61,7 +61,7 @@ const Navbar = () => {
             alt="Default Avatar"
           />
         )}
-        <button className="btn bg-[#403F3F] text-white px-4">Login</button>
+        <Link to={"/signin"} className="btn bg-[#403F3F] text-white px-4">Login</Link>
       </div>
     </div>
   );

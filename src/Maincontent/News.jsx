@@ -3,20 +3,19 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import NewsCard from '../Components/NewsCard/NewsCard';
 
 const News = () => {
-    const params = useParams();
-    console.log(params);
-    const data = useLoaderData();
-    
+  const params = useParams();
+  const data = useLoaderData();
 
-    const news = data.filter((news) => news.category_id === params.id); 
-    console.log(news);
-    return (
-        <div>
-            {
-                news.map((newsitem) => <NewsCard  data={newsitem}></NewsCard>)
-            }
-        </div>
-    );
+  const news = data.filter((news) => news.category_id === params.id);
+
+  return (
+    <div>
+      {params.id === '0'
+        ? data.map((newsitem, index) => <NewsCard key={index} data={newsitem} />)
+        : news.map((newsitem, index) => <NewsCard key={index} data={newsitem} />)
+      }
+    </div>
+  );
 };
 
 export default News;
